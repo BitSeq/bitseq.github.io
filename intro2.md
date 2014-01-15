@@ -37,8 +37,8 @@ $ bowtie -q -v 3 --trim3 0 --trim5 0 --all -m 100 --threads 4 --sam ensemblGenes
 
 We will also need a list of transcript names with their lengths which is expected in form:
  
- *  first line contains: # M <number of transcripts>
- *  following lines: <gene name> <transcript name> <transcript length>
+ *  first line contains: # M &lt;number of transcripts&gt;
+ *  following lines: &lt;gene name&gt; &lt;transcript name&gt; &lt;transcript length&gt;
 
 We will call it *ensemblGenes.tr*, this list can be created while pre-processing the alignments with option `--trInfoFile` (without gene names which are missing in the SAM header).
 
@@ -101,7 +101,7 @@ $ $BitSeq/estimateHyperPar --meanFile data.Lmean -o data.param data1-[12].rpkm C
 
 ### Condition specific expression, and PPLR
 
-Now we can estimate condition mean expression for each transcript. And the probability of positive log ratio [PPLR].
+Now we can estimate condition mean expression for each transcript. And the probability of positive log ratio [PPLR](https://github.com/BitSeq/BitSeq/wiki/PPLR).
 ```
 $ $BitSeq/estimateDE -o data -p data.param data1-[12].rpkm C data2-[12].rpkm
 ```
@@ -116,6 +116,7 @@ The [PPLR](https://github.com/BitSeq/BitSeq/wiki/PPLR) values can be used to ran
 ## Other programs:
 
 Short description of other useful programs provided with BitSeq, for more details run the programs with `--help` option.
+
 <dl>
 <dt>convertSamples</dt>
 <dd>converts MCMC between different formats, also useful for normalisation</dd>
