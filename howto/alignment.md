@@ -34,6 +34,7 @@ in FASTA format" and "Long non-coding RNAs in FASTA format"
 #### pre-mRNA sequences from GENCODE
 
 In addition to the steps above
+
 1. Under "GTF files", download "Main file, gene annotation on three levels"
 1. Under "Fasta files", download "Genome sequence fasta file"
 1. Run the BitSeq tool
@@ -58,6 +59,7 @@ fastagrep.sh -v 'GRCh38:[^1-9XMY]' Homo_sapiens.GRCh38.ncrna.all.fa > Homo_sapie
 #### pre-mRNA sequences from Ensembl
 
 In addition to the steps above
+
 1. Find the GTF file by replacing "fasta" in the FTP address path by "gtf", i.e. "ftp://ftp.ensembl.org/pub/release-76/fasta/homo_sapiens/" -> "ftp://ftp.ensembl.org/pub/release-76/gtf/homo_sapiens/" and download the "...gtf.gz" file
 1. Returning to the Ensembl species page, under "Genome assembly", click "Download DNA sequence (FASTA)"
 1. Download the file "....dna.primary_assembly.fa.gz"
