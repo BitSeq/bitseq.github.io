@@ -38,9 +38,11 @@ In addition to the steps above
 1. Under "GTF files", download "Main file, gene annotation on three levels"
 1. Under "Fasta files", download "Genome sequence fasta file"
 1. Run the BitSeq tool
+
 ```
 gtftool -t gencode.[XXX].annotation.gtf.gz -g GRC[YYY].genome.fa.gz genes > gencode.pre_mrnas.fa
 ```
+
 where you should replace `[XXX]` and `[YYY]` with the appropriate
 versions for the files you downloaded.
 
@@ -51,9 +53,10 @@ versions for the files you downloaded.
 1. Download the file "....cdna.all.fa.gz" from directory "cdna" and gunzip it
 1. Download the file "....ncrna.fa.gz" from directory "ncrna" and gunzip it
 1. For human reference, it may be desirable to remove alternative haplotypes and other alternative locus entries using
+
 ```
-fastagrep.sh -v 'GRCh38:[^1-9XMY]' Homo_sapiens.GRCh38.cdna.all.fa > Homo_sapiens.GRCh38.cdna.filtered.fa
-fastagrep.sh -v 'GRCh38:[^1-9XMY]' Homo_sapiens.GRCh38.ncrna.all.fa > Homo_sapiens.GRCh38.ncrna.filtered.fa
+./fastagrep.sh -v 'GRCh38:[^1-9XMY]' Homo_sapiens.GRCh38.cdna.all.fa > Homo_sapiens.GRCh38.cdna.filtered.fa
+./fastagrep.sh -v 'GRCh38:[^1-9XMY]' Homo_sapiens.GRCh38.ncrna.all.fa > Homo_sapiens.GRCh38.ncrna.filtered.fa
 ```
 
 #### pre-mRNA sequences from Ensembl
@@ -64,9 +67,11 @@ In addition to the steps above
 1. Returning to the Ensembl species page, under "Genome assembly", click "Download DNA sequence (FASTA)"
 1. Download the file "....dna.primary_assembly.fa.gz"
 1. Run the BitSeq tool
+
 ```
 gtftool -t Homo_sapiens.GRCh38.76.gtf.gz -g Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz --outputFormat=ensembl genes > gencode.pre_mrnas.fa
 ```
+
 where you should replace `[XXX]` and `[YYY]` with the appropriate
 versions for the files you downloaded.
 
