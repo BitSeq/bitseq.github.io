@@ -64,12 +64,18 @@ versions for the files you downloaded.
 In addition to the steps above
 
 1. Find the GTF file by replacing "fasta" in the FTP address path by "gtf", i.e. "ftp://ftp.ensembl.org/pub/release-76/fasta/homo_sapiens/" -> "ftp://ftp.ensembl.org/pub/release-76/gtf/homo_sapiens/" and download the "...gtf.gz" file
+1. For human reference, it may be desirable to remove alternative haplotypes and other alternative locus entries using
+
+    ```
+gunzip -dc Homo_sapiens.GRCh38.76.gtf.gz | grep -e '^[1-9XMY#]' | gzip -c > Homo_sapiens.GRCh38.76.filtered.gtf.gz
+```
+
 1. Returning to the Ensembl species page, under "Genome assembly", click "Download DNA sequence (FASTA)"
 1. Download the file "....dna.primary_assembly.fa.gz"
 1. Run the BitSeq tool
 
 ```
-gtftool -t Homo_sapiens.GRCh38.76.gtf.gz -g Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz --outputFormat=ensembl genes > gencode.pre_mrnas.fa
+gtftool -t Homo_sapiens.GRCh38.76.filtered.gtf.gz -g Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz --outputFormat=ensembl genes > ensembl.pre_mrnas.fa
 ```
 
 where you should replace `[XXX]` and `[YYY]` with the appropriate
