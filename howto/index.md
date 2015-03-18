@@ -59,7 +59,7 @@ $ $BitSeq/parseAlignment  data1-1.sam -o data1-1.prob --trSeqFile ensemblGenes.f
 
 ### Expression estimation
 
-There are two approaches for estimating transcript expression: the first one uses MCMC sampling and the second one uses a Variational Bayes (VB) algorithm. MCMC sampling is more suitable for downstream analysis (Stage 2), while the significanlty faster VB algorithm is strongly recommended when the main aim of the analysis is expression estimation. See the next section for MCMC sampling, while for the VB algorithm see [this  link](https://github.com/BitSeq/bitseq.github.io/blob/master/howto/variationalBayes.md). An extensive simulation study was conducted in order to benchmark the majority of available transcript expression estimation methods, including BitSeqVB and BitSeqMCMC. The full code is [available](https://github.com/BitSeq/BitSeqVB_benchmarking) in order to reproduce our results.
+There are two approaches for estimating transcript expression: the first one uses MCMC sampling and the second one uses a Variational Bayes (VB) algorithm. MCMC sampling is more suitable for downstream analysis (Stage 2), while the significanlty faster VB algorithm is strongly recommended when the main aim of the analysis is expression estimation. See the next section for MCMC sampling, while for the VB algorithm see [this  link](http://bitseq.github.io/howto/variationalBayes). An extensive simulation study was conducted in order to benchmark the majority of available transcript expression estimation methods, including BitSeqVB and BitSeqMCMC. The full code is [available](https://github.com/BitSeq/BitSeqVB_benchmarking) in order to reproduce our results.
 
 
 
