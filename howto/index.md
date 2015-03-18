@@ -57,6 +57,11 @@ $ $BitSeq/parseAlignment  data1-1.sam -o data1-1.prob --trSeqFile ensemblGenes.f
   * note: when computing non-uniform read distribution (without option `--uniform`) option `--procN` allows parallelisation. We advice not using more than default 3 CPUs as this tends to decrease the overall performance.
 
 
+### Expression estimation
+
+There are two approaches for estimating transcript expression: the first one uses MCMC sampling and the second one uses a Variational Bayes (VB) algorithm. MCMC sampling is more suitable for downstream analysis (Stage 2), while the significanlty faster VB algorithm is strongly recommended when the main aim of the analysis is expression estimation. See the next section for MCMC sampling, while for the VB algorithm see (link to variationalBayes.md).
+
+
 ### Sampling
 
 Now we run the sampler, which is the main part of the analysis and takes the most time.
