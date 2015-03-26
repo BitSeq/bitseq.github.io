@@ -92,9 +92,23 @@ versions for the files you downloaded.
 
 ## Read alignment
 
+### Alignment with Bowtie 2
+
+First create an index for your reference file ref.fa (only needs to be done once)
+
+```
+$ bowtie2-build -f ref.fa ref
+```
+Now, map the paired-end reads (data1-1_1.fastq and data1-1_2.fastq)
+
+```
+$ bowtie2 -q -k 100 --threads 4 --no-mixed --no-discordant -x ref -1 data1-1_1.fastq -2 data1-1_2.fastq -S data1-1.sam 
+```
+* options: input Fastq, report up to 100 alignments, use 4 cores, map both ends, disable discordant alignments, produce SAM formatted output
+
 ### Alignment with Bowtie 1
 
-First create an index for your transcripts (only needs to be done once)
+Optionally, the user can also use Bowtie 1, although it is not recommended for long length reads. First create an index for your transcripts (only needs to be done once)
 
 ```
 $ bowtie-build -f -o 2 -t 12 --ntoa my_transcriptome.fa,my_pre_mrnas.fa my_transcripts
@@ -109,16 +123,3 @@ $ bowtie -q -v 3 --trim3 0 --trim5 0 --all -m 100 --threads 4 --sam ensemblGenes
  * options: input Fastq, allow up to 3 mismatches, trim 0 from 3' end, trim 0 from 5' end, return all alignments, return only for reads with less than 100 alignments, use 4 cores, produce SAM formatted output
  * samtools is a standalone software, options: include header, input is SAM, output is BAM; input is from `stdin`; output into file
 
-### Alignment with Bowtie 2
-
-First create an index for your reference file ref.fa (only needs to be done once)
-
-```
-$ bowtie2-build -f ref.fa ref
-```
-Now, map the paired-end reads (data1-1_1.fastq and data1-1_2.fastq)
-
-```
-$ bowtie2 -q -k 100 --threads 4 --no-mixed --no-discordant -x ref -1 data1-1_1.fastq -2 data1-1_2.fastq -S data1-1.sam 
-```
-* options: input Fastq, report up to 100 alignments, use 4 cores, map both ends, disable discordant alignments, produce SAM formatted output

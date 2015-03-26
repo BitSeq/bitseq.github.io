@@ -17,7 +17,7 @@ The 1st stage is explained in detail below. In case that differential expression
 
 We want to analyse expression of human transcripts from pair-end sample *data1-1_1.fastq, data1-1_2.fastq*. First we need to download reference in form of transcript sequence and align the reads using _bowtie_. We will use hg19 ensebml transcripts:
 
-1. Follow this link to: [UCSC Table Browser](http://genome.ucsc.edu/cgi-bin/hgTables?hgsid=214391795&clade=mammal&org=0&db=0&hgta_group=genes&hgta_track=ensGene&hgta_table=ensGene&hgta_regionType=genome&position=&hgta_outputType=sequence&hgta_outFileName=ensemblGenes.fasta) which should set you the important fields.
+1. Follow this link to: [UCSC Table Browser](http://genome.ucsc.edu/cgi-bin/hgTables?hgsid=214391795&clade=mammal&org=0&db=0&hgta_group=genes&hgta_track=ensGene&hgta_table=ensGene&hgta_regionType=genome&position=&hgta_outputType=sequence&hgta_outFileName=ensemblGenes.fa) which should set you the important fields.
  * (important fields: group:"Genes and Gene Prediction Tracks", track:"Ensembl Genes", table:"ensGene", output format:"Sequence", output file:"ensemblGenes.fasta", file type returned:"gzip compressed")
 1. Click "get output"
 1. Select "genomic", click "submit"
@@ -28,14 +28,17 @@ We want to analyse expression of human transcripts from pair-end sample *data1-1
 Now create index and align:
 
 ```
-$ bowtie-build -f -o 2 -t 12 --ntoa ensemblGenes.fasta ensemblGenes
-$ bowtie -q -v 3 --trim3 0 --trim5 0 --all -m 100 --threads 4 --sam ensemblGenes -1 data1-1_1.fastq -2 data1-1_2.fastq data1-1.sam 
+$ bowtie2-build -f ensemblGenes.fa ensemblGenes
+$ bowtie2 -q -k 100 --threads 4 --no-mixed --no-discordant -x ensemblGenes -1 data1-1_1.fastq -2 data1-1_2.fastq -S data1-1.sam 
 # for saving alignments in BAM format use samtools
-$ bowtie -q -v 3 --trim3 0 --trim5 0 --all -m 100 --threads 4 --sam ensemblGenes -1 data1-1_1.fastq -2 data1-1_2.fastq | samtools view -hSb - -o data1-1.bam
+$ bowtie2 -q -k 100 --threads 4 --no-mixed --no-discordant -x ensemblGenes -1 data1-1_1.fastq -2 data1-1_2.fastq | samtools view -hSb - -o data1-1.bam
 ```
 
- * options: input Fastq, allow up to 3 mismatches, trim 0 from 3' end, trim 0 from 5' end, return all alignments, return only for reads with less than 100 alignments, use 4 cores, produce SAM formatted output
+The user can also use bowtie1 instead of bowtie2. For more details on this step see the [alignment page](http://bitseq.github.io/howto/alignment).
+
  * samtools is a standalone software, options: include header, input is SAM, output is BAM; input is from `stdin`; output into file
+
+
 
 We will also need a list of transcript names with their lengths which is expected in form:
  
