@@ -11,7 +11,7 @@ BitSeq analysis consists of two stages:
 * Stage 1 for expression estimation; and
 * Stage 2 for differential expression estimation (optional).
 
-These 1st stage is explained in detail below. In case that differential expression analysis is also required see [BitSeq stage 2](http://bitseq.github.io/howto/stage2). 
+The 1st stage is explained in detail below. In case that differential expression analysis is also required see [BitSeq stage 2](http://bitseq.github.io/howto/stage2). 
 
 ## Stage 1:
 
