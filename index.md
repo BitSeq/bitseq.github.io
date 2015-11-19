@@ -13,4 +13,4 @@ title: BitSeq
 
 [Differential expression](http://bitseq.github.io/howto/stage2)
 
-[Publications](http://bitseq.github.io/howto/publications)
+[Publications](http://bitseq.github.io/publications/publications)
