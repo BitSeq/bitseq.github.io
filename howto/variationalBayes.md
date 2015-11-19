@@ -19,7 +19,7 @@ $ $BitSeq/estimateVBExpression -o data data.prob
  * argument: the alignment probability file from pre-processing
  * options: output prefix, output type (theta, RPKM, counts, default: theta), transcript info file, number of threads to use (default: 4), optimization method (steepest, PR, FR, HS) (default: FR)
 
-The sampler produces the file *data.m_alphas* which contains three columns. The first one corresponds to the estimated relative transcript expression levels (mean *theta*). The next two columns contain the parameters of the marginal Beta distribution describing the estimated distribution per transcript (*alpha*, *beta*). The resulting file will contains *M* lines, one for each transcript. Note that the joint distribution of all *M* transcripts is a Dirichlet with the parameters written in the second column (*alpha*).
+The algorithm produces the file *data.m_alphas* which contains three columns. The first one corresponds to the estimated relative transcript expression levels (mean *theta*). The next two columns contain the parameters of the marginal Beta distribution describing the estimated distribution per transcript (*alpha*, *beta*). The resulting file will contains *M* lines, one for each transcript. Note that the joint distribution of all *M* transcripts is a Dirichlet with the parameters written in the second column (*alpha*).
 
 ### References
 
