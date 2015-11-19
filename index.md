@@ -12,3 +12,5 @@ title: BitSeq
 [BitSeqVB](http://bitseq.github.io/howto/variationalBayes)
 
 [Differential expression](http://bitseq.github.io/howto/stage2)
+
+[Publications](http://bitseq.github.io/publications/publications)
