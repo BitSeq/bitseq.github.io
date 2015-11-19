@@ -24,4 +24,5 @@ The sampler produces the file *data.m_alphas* which contains three columns. The 
 ### References
 
  1 Hensman, J., Papastamoulis, P., Glaus, P., Honkela, A., and Rattray, M. (2015). [Fast and accurate approximate inference of transcript expression from RNA-seq data.](http://bioinformatics.oxfordjournals.org/content/early/2015/09/04/bioinformatics.btv483) Bioinformatics, 10.1093/bioinformatics/btv483
+ 
  2 [Benchmarking experiments](https://github.com/BitSeq/BitSeqVB_benchmarking)
