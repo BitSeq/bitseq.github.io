@@ -118,3 +118,13 @@ Short description of other useful programs provided with BitSeq, for more detail
 <dt>transposeLargeFile</dt>
 <dd>transposes one or more expression sample files from (N rows M columns) to (M rows N columns) and merges them into single file</dd>
 </dl>
+
+
+`getGeneExpression` example:  assume that the file `geneFile.txt` contains gene names (one per transcript - at the same order with `ensemblGenes.tr` file names). 
+
+```
+$ $BitSeq/getGeneExpression -o data1-1_Genes.rpkm -t ensemblGenes.tr -G geneFile.txt data1-1.rpkm
+$ $BitSeq/getVariance -o data1-1_Genes data1-1_Genes.rpkm
+```
+The mean gene-level RPKM values are written to the 1st column of `data1-1_Genes`.
+
